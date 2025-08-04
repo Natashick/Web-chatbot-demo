@@ -1,5 +1,9 @@
 # Cybersecurity Web-Chatbot mit Mistral-7B auf Azure
 
+<div align="center">
+  <img src="https://via.placeholder.com/400x200/1e3a8a/ffffff?text=🤖+AI+Chatbot" alt="Chatbot Logo" width="400"/>
+</div>
+
 Ein intelligenter Chatbot für Cybersecurity-Dokumentation, basierend auf einem feinjustierten Mistral-7B-Modell und deployt auf Microsoft Azure.
 
 ## Projektübersicht
@@ -225,5 +229,6 @@ MIT License - Frei für persönliche und kommerzielle Nutzung.
 - [Projekt-Dokumentation](doku/)
 
 ---
+
 
 ** Ein modernes Beispiel für den Einsatz von Large Language Models in der Praxis!**
