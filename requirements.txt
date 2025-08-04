@@ -1,0 +1,16 @@
+# requirements.txt
+# Empfohlene, kompatible Versionen für AzureML, PEFT und Mistral-7B
+transformers==4.53.2
+peft==0.16.0
+torch==2.7.1
+sentencepiece==0.1.99
+protobuf==3.20.3
+azureml-defaults
+fastapi
+uvicorn
+tiktoken
+bitsandbytes
+accelerate
+requests
+flask
+flask-cors

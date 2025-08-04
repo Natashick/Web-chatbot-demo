@@ -1,4 +1,3 @@
-# Web--chatbot-demo
 # Cybersecurity Web-Chatbot mit Mistral-7B auf Azure
 
 Ein intelligenter Chatbot für Cybersecurity-Dokumentation, basierend auf einem feinjustierten Mistral-7B-Modell und deployt auf Microsoft Azure.

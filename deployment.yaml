@@ -1,0 +1,13 @@
+name: mistral-7b-finetuned-peft-reg-1
+endpoint_name: mein-projekt-xmise
+model: azureml:mistral-7b-finetuned-peft-registered:1
+code_configuration:
+  code: .
+  scoring_script: score_backup_fixed.py
+environment: azureml:mistral-qlora-env:5
+instance_type: Standard_NC4as_T4_v3
+instance_count: 1
+environment_variables:
+  HUGGING_FACE_HUB_TOKEN: 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
+request_settings:
+  request_timeout_ms: 120000
