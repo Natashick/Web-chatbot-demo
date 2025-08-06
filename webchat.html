@@ -91,8 +91,8 @@
 
   <script>
             // Direkt zu Azure ML Endpoint
-        const AZURE_ENDPOINT = 'https://mein-projekt-xmise.germanywestcentral.inference.ml.azure.com/score';
-        const AZURE_KEY = '56atAoG5g5209Q8ZaPzbHIHWYkoirMFeYD40qvggDELy31rCIvk1JQQJ99BGAAAAAAAAAAAAINFRAZML4BBd';
+        const AZURE_ENDPOINT = 'https://web--chatbot-demo.vercel.app/api/proxy';
+        const AZURE_KEY = '';
 
     const chat = document.getElementById('chat');
     const input = document.getElementById('input');
@@ -113,8 +113,7 @@
           const response = await fetch(AZURE_ENDPOINT, {
             method: 'POST',
             headers: {
-              'Content-Type': 'application/json',
-              'Authorization': 'Bearer ' + AZURE_KEY
+              'Content-Type': 'application/json', 
             },
             body: JSON.stringify({ prompt: question })
           });
@@ -147,4 +146,5 @@
   </script>
 </body>
 </html>
+
 
