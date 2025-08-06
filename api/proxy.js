@@ -16,11 +16,11 @@ export default async function handler(req, res) {
   
   try {
     // Request an Azure ML weiterleiten
-    const response = await fetch('https://mein-projekt-xmise.germanywestcentral.inference.ml.azure.com/score', {
+    const response = await fetch('https://mein-projekt....', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer 56atAoG5g5209Q8ZaPzbHIHWYkoirMFeYD40qvggDELy31rCIvk1JQQJ99BGAAAAAAAAAAAAINFRAZML4BBd'
+        'Authorization': 'Bearer .....'
       },
       body: JSON.stringify(req.body)
     });
