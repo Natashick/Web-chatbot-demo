@@ -1,5 +1,6 @@
+/ /api/proxy.js - Vercel Function
 export default async function handler(req, res) {
-  // CORS Headers setzen (löst das Problem!)
+  // CORS Headers setzen
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -15,12 +16,12 @@ export default async function handler(req, res) {
   }
   
   try {
-    // Request an Azure ML weiterleiten
-    const response = await fetch('https://mein-projekt....', {
+    // Environment Variables verwenden (SICHER!)
+    const response = await fetch(process.env.AZURE_ML_ENDPOINT, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer .....'
+        'Authorization': `Bearer ${process.env.AZURE_ML_KEY}`
       },
       body: JSON.stringify(req.body)
     });
@@ -28,6 +29,6 @@ export default async function handler(req, res) {
     const data = await response.json();
     res.json(data);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.status(500).json({ error: 'Server error' });
   }
 }
