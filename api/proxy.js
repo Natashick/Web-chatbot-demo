@@ -14,11 +14,11 @@ export default async function handler(req, res) {
   }
   
   try {
-    const response = await fetch(process.env.AZURE_ENDPOINT, {
+    const response = await fetch(process.env.AZURE_ML_ENDPOINT, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.AZURE_KEY}`
+        'Authorization': `Bearer ${process.env.AZURE_ML_KEY}`
       },
       body: JSON.stringify(req.body)
     });
