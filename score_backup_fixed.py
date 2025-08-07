@@ -22,7 +22,7 @@ generator = None
 def init():
     global model, tokenizer, generator
     model_dir = os.environ["AZUREML_MODEL_DIR"]
-    fixed_subdir = "mistral....."
+    fixed_subdir = "mistral-finetune-job-20250625100239"
     config_dir = os.path.join(model_dir, fixed_subdir)
     if not os.path.exists(config_dir):
         subdirs = [d for d in os.listdir(model_dir) if os.path.isdir(os.path.join(model_dir, d))]
@@ -278,5 +278,4 @@ if __name__ == "__main__":
         uvicorn.run(app, host="0.0.0.0", port=port)
         
     except ImportError:
-
         print("[INFO] FastAPI/Uvicorn not available for local testing. This is expected in AzureML.")
