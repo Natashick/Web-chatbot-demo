@@ -1,5 +1,5 @@
-export default async function handler(req, res) {
-  // CORS Headers setzen - Updated für Fix
+module.exports = async (req, res) => {
+  // CORS Headers setzen
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -15,8 +15,8 @@ export default async function handler(req, res) {
   }
   
   try {
-    // Environment Variables verwenden (SICHER!)
-    const azureResponse = await fetch(process.env.AZURE_ML_ENDPOINT, {
+    // Environment Variables verwenden
+    const response = await fetch(process.env.AZURE_ML_ENDPOINT, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -25,11 +25,11 @@ export default async function handler(req, res) {
       body: JSON.stringify(req.body)
     });
     
-    if (!azureResponse.ok) {
-      throw new Error(`Azure ML Error: ${azureResponse.status}`);
+    if (!response.ok) {
+      throw new Error(`Azure ML Error: ${response.status}`);
     }
     
-    const data = await azureResponse.json();
+    const data = await response.json();
     res.json(data);
     
   } catch (error) {
@@ -39,4 +39,4 @@ export default async function handler(req, res) {
       message: error.message 
     });
   }
-}
+};
