@@ -110,7 +110,7 @@
       appendMessage('user', question);
       appendMessage('bot', '...');
       try {
-        const response = await fetch(AZURE_ENDPOINT, {
+        const response = await fetch(AZURE_ML_ENDPOINT, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -147,6 +147,7 @@
 </body>
 </html>
 </html>
+
 
 
 
