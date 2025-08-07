@@ -35,7 +35,7 @@ Dieses Projekt entwickelt einen KI-basierten Web-Chatbot zur effizienten Dokumen
 
 cyber-bot-func/
 ├──  webchat.html              # Frontend Web-Interface
-├──  score_backup_fixed.py     # Optimiertes ML-Inferenz-Script
+├──  score.py                  # Optimiertes ML-Inferenz-Script
 ├──  proxy.py                  # Lokaler CORS-Proxy (optional)
 ├──  requirements.txt          # Python-Dependencies
 ├──  Dockerfile                # Container-Definition
@@ -45,7 +45,6 @@ cyber-bot-func/
 │   ├── Projektantrag_Chatbot_Mistral7B.doc
 │   └── regeln.txt
 ├──  README.md                 # Diese Datei
-└──  README_*.md               # Detaillierte Deployment-Guides
 
 ##  Installation & Setup
 
@@ -57,7 +56,7 @@ cyber-bot-func/
 
 ### **1. Repository klonen**
 ```bash
-git clone https://github.com/username/cyber-bot-func.git
+git clone https://github.com/username/bot_..._.git
 cd cyber-bot-func
 ```
 
@@ -85,13 +84,13 @@ az ml online-endpoint create -f endpoint.yaml
 az ml online-deployment create -f deployment.yaml
 
 # Traffic aktivieren
-az ml online-endpoint update -n mein-projekt-xmise --traffic mistral-7b-finetuned-peft-reg-1=100
+az ml online-endpoint update -n !dein_projekt! --traffic mistral_dein_Model_!!! -1=100
 ```
 
 ### **4. Frontend konfigurieren**
 1. **Endpoint-URL abrufen:**
    ```bash
-   az ml online-endpoint show -n mein-projekt-xmise --query scoring_uri
+   az ml online-endpoint show -n !dein_projekt! --query scoring_uri
    ```
 
 2. **API-Key abrufen:**
@@ -169,8 +168,6 @@ repetition_penalty = 1.2
 temperature = 0.3  # Weniger kreativ
 ```
 
-Detaillierte Troubleshooting-Guides: siehe `README3_AZURE_FEHLER_UND_LOESUNGEN.md`
-
 ##  Performance-Metriken
 
 - **Antwortzeit:** 6-15 Sekunden (optimiert)
@@ -222,14 +219,7 @@ Dieses Repository enthält einen vollständigen AI-Chatbot mit modernen Cloud-Te
 
 MIT License - Frei für persönliche und kommerzielle Nutzung.
 
-##  Weitere Dokumentation
-
-- [Detailliertes Azure-Deployment](README2_AZURE_DEPLOY_DETAIL.md)
-- [Fehlerbehandlung & Troubleshooting](README3_AZURE_FEHLER_UND_LOESUNGEN.md)
-- [Projekt-Dokumentation](doku/)
-
----
-
 
 ** Ein modernes Beispiel für den Einsatz von Large Language Models in der Praxis!**
+
 
