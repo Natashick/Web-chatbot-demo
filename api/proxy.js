@@ -1,42 +1,54 @@
-module.exports = async (req, res) => {
-  // CORS Headers setzen
+export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  
-  // Preflight Request behandeln
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
   }
-  
-  // Nur POST Requests erlauben
+
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Only POST allowed' });
   }
-  
+
   try {
-    // Environment Variables verwenden
-    const response = await fetch(process.env.AZURE_ML_ENDPOINT, {
+    // Sicherstellen, dass body immer korrekt ist
+    let body = req.body;
+    if (!body || typeof body !== 'object') {
+      try { body = JSON.parse(req.body); } catch (e) { body = {}; }
+    }
+
+    const endpoint = process.env.AZURE_ML_ENDPOINT;
+    const key = process.env.AZURE_ML_KEY;
+    if (!endpoint || !key) {
+      throw new Error('Azure Endpoint/Key nicht gesetzt!');
+    }
+
+    const azureResponse = await fetch(endpoint, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.AZURE_ML_KEY}`
+        'Authorization': `Bearer ${key}`
       },
-      body: JSON.stringify(req.body)
+      body: JSON.stringify(body)
     });
-    
-    if (!response.ok) {
-      throw new Error(`Azure ML Error: ${response.status}`);
+
+    const data = await azureResponse.json();
+    if (!azureResponse.ok) {
+      throw new Error(`Azure ML Error: ${azureResponse.status} - ${JSON.stringify(data)}`);
     }
-    
-    const data = await response.json();
+
     res.json(data);
-    
+
   } catch (error) {
+    // CORS auch bei Fehlern!
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     console.error('Proxy Error:', error);
     res.status(500).json({ 
       error: 'Server error',
       message: error.message 
     });
   }
-};
+}
