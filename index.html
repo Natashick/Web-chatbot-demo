@@ -78,19 +78,22 @@
 
 <body>
 <div id="header-row" style="display: flex; align-items: center; margin-bottom: 20px;">
-  <img src="images/bot.jpg" alt="Bot Logo" style="width: 2cm; height: 2cm; object-fit: cover; margin-right: 20px;" />
-  <div>
-    <div style="font-size: 2.2rem; font-weight: bold; text-transform: uppercase;">TALIA</div>
-    <div style="font-size: 1rem; margin-top: 3px;">
-      Threat Analysis and Learning Intelligence for Automotive
+    <img src="images/bot.jpg" alt="Bot Logo" style="width: 2cm; height: 2cm; object-fit: cover; margin-right: 20px;" />
+    <div>
+      <div style="font-size: 2.2rem; font-weight: bold; text-transform: uppercase; line-height: 1;">
+        TALIA<br><br>
+        <span style="font-size: 1rem; text-transform: none; font-weight: normal;">
+          Threat Analysis and Learning Intelligence for Automotive
+        </span>
+      </div>
     </div>
-  </div>
-</div>
-  <div id="chat-container">
-    <div id="chat"></div>
-    <div id="input-row">
-      <textarea id="input" rows="2" placeholder="Ask a question..."></textarea>
-      <button id="send" type="button">Send</button>
+
+    <div id="chat-container" style="margin-left: auto;">
+      <div id="chat"></div>
+      <div id="input-row" style="display: flex; gap: 8px; margin-top: 8px;">
+        <textarea id="input" rows="2" placeholder="Ask a question..." style="resize: none;"></textarea>
+        <button id="send" type="button">Send</button>
+      </div>
     </div>
   </div>
 
@@ -151,6 +154,7 @@
   </script>
 </body>
 </html>
+
 
 
 
