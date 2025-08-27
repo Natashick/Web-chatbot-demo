@@ -4,128 +4,114 @@
   <meta charset="UTF-8">
   <title>TALIA</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    body { 
+      font-family: Arial, sans-serif; 
+      margin: 40px; 
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
+      background: #f5f7fa;
+    }
+    #header-row {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    #header-row img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+    #header-row h1 {
       margin: 0;
-      padding: 0;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    #header-row p {
+      margin: 5px 0 0 0;
+      font-size: 1rem;
+      color: #444;
+    }
+    #chat-container {
       display: flex;
       flex-direction: column;
       align-items: center;
-      background: #f4f7fb;
-      color: #333;
-    }
-
-    /* Header oben */
-    #header {
-      text-align: center;
-      padding: 30px 20px 10px;
-    }
-
-    #header img {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
-
-    #header h1 {
-      font-size: 2rem;
-      font-weight: bold;
-      margin: 10px 0 5px;
-      letter-spacing: 1px;
-    }
-
-    #header p {
-      font-size: 1rem;
-      margin: 0;
-      color: #555;
-    }
-
-    /* Chat-Container */
-    #chat-container {
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
       width: 800px;
-      max-width: 90%;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
     }
-
     #chat {
-      padding: 15px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      width: 100%;
       height: 500px;
       overflow-y: auto;
+      margin-bottom: 0;
       background: #fafbfc;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      border-radius: 6px;
     }
-
+    #chat div {
+      margin-bottom: 6px;
+      padding: 4px 6px;
+      border-radius: 4px;
+    }
+    .user { 
+      color: #004085; 
+      background: #dbe9ff;
+      text-align: left;
+    }
+    .bot { 
+      color: #155724; 
+      background: #e6f4ea;
+      text-align: left;
+    }
     #input-row {
       display: flex;
-      border-top: 1px solid #ddd;
+      width: 100%;
+      align-items: flex-start;
+      margin-top: 8px;
+      box-sizing: border-box;
     }
-
     #input {
-      flex: 1;
+      width: 100%;
       min-height: 2.5em;
-      max-height: 6em;
+      max-height: 5em;
       font-size: 1rem;
-      padding: 10px;
-      border: none;
+      padding: 8px;
+      box-sizing: border-box;
+      border: 1px solid #bbb;
+      border-radius: 4px 0 0 4px;
       outline: none;
       resize: none;
+      overflow-y: auto;
       line-height: 1.4;
+      white-space: pre-wrap;
     }
-
     #send {
-      width: 100px;
+      width: 80px;
       font-size: 1rem;
-      border: none;
-      background: #0078d4;
+      padding: 8px 0;
+      border: 1px solid #bbb;
+      border-left: none;
+      border-radius: 0 4px 4px 0;
+      background: #007bff;
       color: white;
-      font-weight: bold;
       cursor: pointer;
       transition: background 0.2s;
+      align-self: stretch;
     }
-
     #send:hover {
-      background: #005fa3;
-    }
-
-    /* Nachrichten */
-    .user, .bot {
-      margin: 6px 0;
-      padding: 8px 12px;
-      border-radius: 8px;
-      max-width: 70%;
-      word-wrap: break-word;
-    }
-
-    .user {
-      align-self: flex-end;
-      background: #d0e7ff;
-      color: #004a80;
-    }
-
-    .bot {
-      align-self: flex-start;
-      background: #e8f5e9;
-      color: #2e7d32;
+      background: #0056b3;
     }
   </style>
 </head>
 
 <body>
-  <!-- HEADER -->
-  <div id="header">
-    <img src="images/bot.jpg" alt="Bot Logo">
+  <div id="header-row">
+    <img src="images/bot.jpg" alt="Bot Logo"/>
     <h1>TALIA</h1>
     <p>Threat Analysis and Learning Intelligence for Automotive</p>
   </div>
 
-  <!-- CHAT -->
   <div id="chat-container">
     <div id="chat"></div>
     <div id="input-row">
@@ -135,25 +121,25 @@
   </div>
 
   <script>
+    // Vercel Proxy (SICHER - keine Keys!)
     const AZURE_ENDPOINT = 'https://web-chatbot-demo.vercel.app/api/proxy';
-
     const chat = document.getElementById('chat');
     const input = document.getElementById('input');
     const send = document.getElementById('send');
 
     function appendMessage(sender, text) {
-  const div = document.createElement('div');
-  div.className = sender;
+      const div = document.createElement('div');
+      div.className = sender;
 
-  if (sender === 'user') {
-    div.textContent = "You: " + text;
-  } else {
-    div.textContent = "TALIA: " + text;
-  }
+      if (sender === 'user') {
+        div.textContent = "You: " + text;
+      } else {
+        div.textContent = "TALIA: " + text;
+      }
 
-  chat.appendChild(div);
-  chat.scrollTop = chat.scrollHeight;
-}
+      chat.appendChild(div);
+      chat.scrollTop = chat.scrollHeight;
+    }
 
     async function askBot(question) {
       appendMessage('user', question);
@@ -164,10 +150,14 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ prompt: question })
         });
-        if (!response.ok) throw new Error('HTTP ' + response.status);
+        if (!response.ok) {
+          throw new Error('HTTP ' + response.status + ': ' + await response.text());
+        }
         const data = await response.json();
         chat.removeChild(chat.lastChild);
-        const answer = (Array.isArray(data) && data[0]?.answer) ? data[0].answer : JSON.stringify(data);
+        const answer = (Array.isArray(data) && data[0] && data[0].answer) 
+          ? data[0].answer 
+          : JSON.stringify(data);
         appendMessage('bot', answer);
       } catch (e) {
         chat.removeChild(chat.lastChild);
@@ -175,14 +165,14 @@
       }
     }
 
-    send.onclick = () => {
+    send.onclick = function() {
       const question = input.value.trim();
       if (!question) return;
       input.value = '';
       askBot(question);
     };
 
-    input.addEventListener('keydown', e => {
+    input.addEventListener('keydown', function(e) {
       if (e.key === 'Enter' && !e.shiftKey) {
         e.preventDefault();
         send.onclick();
