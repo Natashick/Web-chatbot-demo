@@ -1,0 +1,100 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:142.0) Gecko/20100101 Firefox/142.0" version="28.1.1">
+  <diagram name="Seite-1" id="VR5Hl2ecJ1gErx-cC2PF">
+    <mxGraphModel dx="2505" dy="2053" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="KC657Wn0KXdlExSbz0wk-1" value="" style="shape=mxgraph.cisco.computers_and_peripherals.macintosh;html=1;pointerEvents=1;dashed=0;fillColor=#036897;strokeColor=#ffffff;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="-80" y="30" width="160" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="KC657Wn0KXdlExSbz0wk-5" value="&lt;div&gt;PC - Arbeitplatz&lt;/div&gt;&lt;div&gt;Dev [Development -&lt;/div&gt;&lt;div&gt;&lt;div&gt;Training und Test Script]&lt;/div&gt;&lt;/div&gt;&lt;div&gt;LocalCode [Code Editor]&lt;/div&gt;&lt;div&gt;Git [Git Commands]&lt;/div&gt;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-110" y="-140" width="250" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="KC657Wn0KXdlExSbz0wk-6" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;exitX=0.5;exitY=0.01;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="KC657Wn0KXdlExSbz0wk-1" target="KC657Wn0KXdlExSbz0wk-5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="140" y="40" as="sourcePoint" />
+            <mxPoint x="190" y="-10" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KC657Wn0KXdlExSbz0wk-7" value="" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.github_code;pointerEvents=1;" vertex="1" parent="1">
+          <mxGeometry x="-90" y="300" width="160" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="KC657Wn0KXdlExSbz0wk-8" value="&lt;div&gt;Github - Speicherplatz&lt;/div&gt;&lt;div&gt;Actions [GitHub Actions]&lt;/div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; Code [Source Code]&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; Secrets [Secrets &amp;amp; Tokens]" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-210" y="445" width="200" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="KC657Wn0KXdlExSbz0wk-9" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;entryX=0.749;entryY=0.166;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.399;exitY=0.981;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="KC657Wn0KXdlExSbz0wk-7" target="KC657Wn0KXdlExSbz0wk-8">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="103" y="310" as="sourcePoint" />
+            <mxPoint x="-50" y="248" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KC657Wn0KXdlExSbz0wk-10" value="" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.azure_instance;" vertex="1" parent="1">
+          <mxGeometry x="230" y="20" width="170" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="KC657Wn0KXdlExSbz0wk-11" value="&lt;div&gt;Azure - Durchführungpaltz&lt;/div&gt;&lt;div&gt;Model [Mistral-7B]&lt;/div&gt;&lt;div&gt;Endpoint [mein-projekt..]&lt;/div&gt;&lt;div&gt;Deployment [mistral-7b..]&lt;/div&gt;&lt;div&gt;GPU [Standard]&lt;/div&gt;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="265" y="-150" width="215" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="KC657Wn0KXdlExSbz0wk-12" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;entryX=0.451;entryY=0.959;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.763;exitY=0.013;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="KC657Wn0KXdlExSbz0wk-10" target="KC657Wn0KXdlExSbz0wk-11">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="450" y="520" as="sourcePoint" />
+            <mxPoint x="320" y="490" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KC657Wn0KXdlExSbz0wk-13" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://icons.diagrams.net/icon-cache1/Ionicons_Fill_Vol_2-2187/logo-vercel-632.svg" vertex="1" parent="1">
+          <mxGeometry x="210" y="284" width="182" height="182" as="geometry" />
+        </mxCell>
+        <mxCell id="KC657Wn0KXdlExSbz0wk-14" value="&lt;div&gt;Vercel - Einsatzplatz&lt;/div&gt;&lt;div&gt;Frontend [Web - Interface]&lt;/div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; API [API Routes]&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; Build [Build Process]" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="480" width="190" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="KC657Wn0KXdlExSbz0wk-15" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;entryX=0.4;entryY=0.1;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.622;exitY=1.007;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="KC657Wn0KXdlExSbz0wk-13" target="KC657Wn0KXdlExSbz0wk-14">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="429.9146475840668" as="sourcePoint" />
+            <mxPoint x="456.90999999999985" y="390.00000000000017" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KC657Wn0KXdlExSbz0wk-17" value="" style="aspect=fixed;sketch=0;html=1;dashed=0;whitespace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#2875E2;strokeColor=#ffffff;points=[[0.005,0.63,0],[0.1,0.2,0],[0.9,0.2,0],[0.5,0,0],[0.995,0.63,0],[0.72,0.99,0],[0.5,1,0],[0.28,0.99,0]];shape=mxgraph.kubernetes.icon2;kubernetesLabel=1;prIcon=user" vertex="1" parent="1">
+          <mxGeometry x="620" y="316" width="156.25" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="KC657Wn0KXdlExSbz0wk-18" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.556;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="KC657Wn0KXdlExSbz0wk-7" target="KC657Wn0KXdlExSbz0wk-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="85" y="245" as="sourcePoint" />
+            <mxPoint x="135" y="195" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KC657Wn0KXdlExSbz0wk-19" value="" style="endArrow=classic;html=1;rounded=0;entryX=-0.024;entryY=0.399;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.84;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="KC657Wn0KXdlExSbz0wk-1" target="KC657Wn0KXdlExSbz0wk-10">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="160" y="70" as="sourcePoint" />
+            <mxPoint x="210" y="20" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KC657Wn0KXdlExSbz0wk-20" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.987;entryY=0.679;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.002;exitY=0.629;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="KC657Wn0KXdlExSbz0wk-13" target="KC657Wn0KXdlExSbz0wk-7">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="200" y="460" as="sourcePoint" />
+            <mxPoint x="230" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KC657Wn0KXdlExSbz0wk-21" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0.353;entryY=0.918;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.435;exitY=0.022;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="KC657Wn0KXdlExSbz0wk-13" target="KC657Wn0KXdlExSbz0wk-10">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="330" y="355" as="sourcePoint" />
+            <mxPoint x="380" y="305" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KC657Wn0KXdlExSbz0wk-23" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=0.984;exitY=0.655;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.002;entryY=0.582;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="KC657Wn0KXdlExSbz0wk-13" target="KC657Wn0KXdlExSbz0wk-17">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="460" y="400" as="sourcePoint" />
+            <mxPoint x="620" y="403" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KC657Wn0KXdlExSbz0wk-24" value="&lt;div&gt;End User&amp;nbsp;&lt;/div&gt;&lt;div&gt;[Q/A]&lt;/div&gt;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="194" width="140" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="KC657Wn0KXdlExSbz0wk-25" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;exitX=0.768;exitY=0.112;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.436;entryY=0.887;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="KC657Wn0KXdlExSbz0wk-17" target="KC657Wn0KXdlExSbz0wk-24">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="678.25" y="239" as="sourcePoint" />
+            <mxPoint x="720" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
