@@ -4,7 +4,6 @@ export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', allowOrigin);
   res.setHeader('Vary', 'Origin');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  // Erlaube gängige Header; erweitere bei Bedarf
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
 
   if (req.method === 'OPTIONS') {
@@ -16,26 +15,23 @@ export default async function handler(req, res) {
 
   try {
     const endpoint =
-      process.env.AZURE_ML_ENDPOINT ||
-      process.env.AZURE_ML_ENDPOINT_URL; // beide Namensvarianten unterstützen
+      process.env.AZURE_ML_ENDPOINT || process.env.AZURE_ML_ENDPOINT_URL;
     const key =
-      process.env.AZURE_ML_KEY ||
-      process.env.AZURE_ML_ENDPOINT_KEY;
+      process.env.AZURE_ML_KEY || process.env.AZURE_ML_ENDPOINT_KEY;
 
     if (!endpoint || !key) {
       return res.status(500).json({ error: 'Missing AZURE_ML_ENDPOINT or AZURE_ML_KEY' });
     }
 
-    // Request-Body entpacken (beide Stile unterstützen)
+    // Unterstützt sowohl chat (messages) als auch einfachen prompt
     const {
       messages,
       prompt,
       context,
       parameters,
-      return_json, // optional: steuert das Backend-Format, falls score.py das unterstützt
+      return_json
     } = req.body || {};
 
-    // Payload vorsichtig aufbauen: nur erwartete Felder weitergeben
     const payload = {
       ...(messages ? { messages } : {}),
       ...(prompt ? { prompt } : {}),
@@ -44,7 +40,6 @@ export default async function handler(req, res) {
       ...(typeof return_json === 'boolean' ? { return_json } : {}),
     };
 
-    // Optionaler Timeout
     const timeoutMs = Number(process.env.PROXY_TIMEOUT_MS || 120000);
     const controller = new AbortController();
     const t = setTimeout(() => controller.abort(), timeoutMs);
@@ -58,25 +53,19 @@ export default async function handler(req, res) {
       body: JSON.stringify(payload),
       signal: controller.signal,
     }).catch((err) => {
-      // fetch-Fehler (Netzwerk/Timeout)
       throw new Error(`Upstream fetch failed: ${err.message || String(err)}`);
     });
     clearTimeout(t);
 
-    // Content-Type erkennen und entsprechend weitergeben
     const contentType = azureResp.headers.get('content-type') || '';
     const status = azureResp.status;
-
-    // Antwort-Body lesen (Text immer verfügbar; JSON bei Bedarf geparst)
     const rawText = await azureResp.text();
+
     if (!azureResp.ok) {
-      // Fehler vom Azure-Endpoint durchreichen (Body anhängen, falls vorhanden)
       res.status(status);
-      // Wenn JSON-Fehler: JSON weitergeben, sonst Text
       if (contentType.includes('application/json')) {
         try {
-          const errJson = JSON.parse(rawText);
-          return res.json(errJson);
+          return res.json(JSON.parse(rawText));
         } catch {
           res.setHeader('Content-Type', 'text/plain; charset=utf-8');
           return res.send(rawText || `Azure ML Error ${status}`);
@@ -87,13 +76,11 @@ export default async function handler(req, res) {
       }
     }
 
-    // Erfolgsfall: JSON oder Text je nach Upstream
+    // Plain-Text unverändert durchreichen, JSON ebenfalls korrekt weiterreichen
     if (contentType.includes('application/json')) {
       try {
-        const data = JSON.parse(rawText);
-        return res.status(status).json(data);
+        return res.status(status).json(JSON.parse(rawText));
       } catch {
-        // Fiel als Text zurück, obwohl Content-Type JSON – fallback als Text
         res.setHeader('Content-Type', 'text/plain; charset=utf-8');
         return res.status(status).send(rawText);
       }
